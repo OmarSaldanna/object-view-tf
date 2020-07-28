@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practica con Imagenes</title>
+  <!-- importamos materialize y los iconos de google-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<style>
+  .space { height: 1rem; }
+</style>
+<body class="black">
+
+  <!-- titulo -->
+  <div class="row">
+    <div class="col s6 offset-s3 center amber-text"><h3>Práctica con TensorFlow JS</h3></div>
+  </div>
+  <div class="space"></div>
+  <!-- webcam y gestos -->
+  <div class="row">
+    <!-- webcam -->
+    <div class="col s6 offset-s1">
+      <div class="card grey darken-4">
+        <div class="card-image waves-effect waves-block waves-light">
+          <!-- video de la webcam -->
+          <video autoplay playsinline muted id="webcam" width="100%" height="80%"></video>
+        </div>
+        <div class="card-content grey darken-4">
+          <span class="card-title activator grey-text text-darken-4">
+            <!-- botones de captura de gestos -->
+            <a class="waves-effect waves-light btn brown darken-4" onclick="addExample(1)"><i class="material-icons left">import_contacts</i>Libreta</a>
+
+            <a class="waves-effect waves-light btn cyan darken-4" onclick="addExample(2)"><i class="material-icons left">phone_iphone</i>Iphone</a>
+
+            <a class="waves-effect waves-light btn deep-purple darken-4" onclick="addExample(3)"><i class="material-icons left">person</i>Yo</a>
+
+            <a class="waves-effect waves-light btn grey darken-3" onclick="addExample(4)"><i class="material-icons left">battery_full</i>Batería</a>
+
+            <a class="waves-effect waves-light btn orange darken-4" onclick="addExample(5)"><i class="material-icons left">brightness_1</i>Pelota</a>
+
+            <i class="material-icons right white-text">more_vert</i></span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Instrucciones:<i class="material-icons right">close</i></span>
+          <p>
+            Este es un clasificador de gestos, lo que tienes que hacer es lo siguiente:
+            Los botones capturarán tus gestos o imaegnes de tu webcam, mediante ellos podrás
+            guardar gestos para que el modelo de IA los reconozca; el gesto que reconozca se 
+            verá reflejado a la derecha.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- objetos o gestos detectados -->
+    <div class="col s3 offset-s1">
+      <ul class="collection with-header">
+        <li class="collection-header"><h4>Detectando:</h4></li>
+        <li class="collection-item active" id="view_0">Modelo no entrenado</li>
+        <li class="collection-item" id="view_1">Libreta</li>
+        <li class="collection-item" id="view_2">Iphone</li>
+        <li class="collection-item" id="view_3">Yo</li>
+        <li class="collection-item" id="view_4">Batería</li>
+        <li class="collection-item" id="view_5">Pelota</li>
+      </ul>
+    </div>
+  </div>
+
+  
+  <!-- importamos TF y los modelos -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+  
+  <!-- Importaos el script -->
+  <script src="./index.js"></script>
+</body>
+</html>
